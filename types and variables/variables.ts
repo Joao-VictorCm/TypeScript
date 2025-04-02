@@ -33,5 +33,15 @@ const logNumber: (i: number) => void = (i: number) => {
 //Quando usar anotações
 //1 - Função que retorna o tipo 'any'
 const json = '{"x": 10, "y": 20}';
-const coordinates = JSON.parse(json);
+const coordinates: { x: number; y: number } = JSON.parse(json);
 console.log(coordinates);
+
+// 2 - Quando declaramos uma variável em uma linha e a inicialização em outra
+let words = ["red", "green", "blue"];
+let foundWord: boolean;
+
+for (let i = 0; i < words.length; i++) {
+  if (words[i] === "green") {
+    foundWord = true;
+  }
+}
