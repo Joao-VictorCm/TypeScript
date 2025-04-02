@@ -10,7 +10,7 @@ let nothing: undefined = undefined;
 let now: Date = new Date();
 
 //Array
-let colors: string[] = ["red", "green", "blue"];
+let colors: string[] = ["red", "green", "blue"]; //conchetes indica que é um array
 let myNumbers: number[] = [1, 2, 16, 26];
 let trurhs: boolean[] = [true, false, false, true];
 
@@ -23,4 +23,9 @@ let car: Car = new Car();
 let point: { x: number; y: number } = {
   x: 10,
   y: 20,
+};
+
+//Function
+const logNumber: (i: number) => void = (i: number) => {
+  console.log(i);
 };
