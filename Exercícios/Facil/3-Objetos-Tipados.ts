@@ -6,16 +6,16 @@
 // emEstoque: boolean
 // Depois, crie uma variável chamada produto1 do tipo Produto com valores fictícios.
 
-type Produto = {
+type Item = {
   nome: string;
   preço: number;
   emEstoque: boolean;
 };
 
-const produto1: Produto = {
+const item1: Item = {
   nome: "caneta",
   preço: 1.5,
   emEstoque: true,
 };
 
-console.log(produto1);
+console.log(item1);
