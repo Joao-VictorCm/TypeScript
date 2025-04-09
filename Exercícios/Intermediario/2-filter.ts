@@ -84,3 +84,33 @@ function aplicarImposto(lista: Produto[]) {
 
 const juros = aplicarImposto(emEstoque);
 console.log(juros);
+
+/* 🧪 Exercício 3 – Relatório de Produtos
+📋 Enunciado:
+Crie uma função chamada exibirRelatorioDeProdutos que:
+
+Recebe um array de produtos (como o produtos que você já criou antes).
+
+Para cada produto, exibe no console a seguinte mensagem formatada:
+
+makefile
+Copiar
+Editar
+Produto: Caneta | Preço: R$ 1.50 | Disponível: Sim
+🧠 Regras:
+Utilize .forEach() para iterar.
+
+O campo disponivel: true deve aparecer como "Sim" e false como "Não".
+
+Mantenha a formatação do preço com duas casas decimais. */
+
+function exibirRelatorioDeProdutos(lista: Produto[]) {
+  lista.forEach((produtos) => {
+    const estoque = produtos.disponivel ? "sim" : "não";
+    console.log(
+      `Produto: ${produtos.name} | Preço: ${produtos.price} | Disponivel: ${estoque}`
+    );
+  });
+}
+
+exibirRelatorioDeProdutos(produtos);
