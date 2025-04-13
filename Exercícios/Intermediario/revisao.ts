@@ -65,10 +65,7 @@ console.log(juros);
   Recebe um array de produtos (como o produtos que você já criou antes).
   
   Para cada produto, exibe no console a seguinte mensagem formatada:
-  
-  makefile
-  Copiar
-  Editar
+
   Produto: Caneta | Preço: R$ 1.50 | Disponível: Sim
   🧠 Regras:
   Utilize .forEach() para iterar.
@@ -87,3 +84,35 @@ function exibirRelatorioDeProdutos(lista: Produto[]) {
 }
 
 exibirRelatorioDeProdutos(produtos);
+
+/* 🚀 Retomando com o Exercício 5 – Média dos produtos disponíveis (nível intermediário)
+📋 Enunciado (relembrando):
+Crie uma função calcularMediaDisponiveis que:
+Filtra os produtos disponíveis no estoque.
+Soma os preços desses produtos.
+Calcula a média dos preços.
+Retorna o resultado com duas casas decimais. */
+
+function calcularMediaDisponiveis(lista: Produto[]) {
+  const filtro = lista.filter((itens) => (itens.disponivel ? true : false));
+  const soma = filtro.reduce((prevVal, itens) => prevVal + itens.price, 0);
+  const media = soma / filtro.length;
+  const result = media.toFixed(2);
+
+  return `media em estoque é ${result}`;
+}
+
+const total = calcularMediaDisponiveis(produtos);
+console.log(total);
+
+/*
+🧠 Exercício 6 – Valor total dos produtos disponíveis + Mensagem formatada
+🟨 Enunciado:
+Crie uma função chamada gerarResumoDeEstoque que:
+Filtra apenas os produtos disponíveis.
+Soma o valor total dos produtos disponíveis usando .reduce().
+Retorna uma mensagem formatada, assim:
+
+"Total em estoque: R$ 4.30 para 3 itens disponíveis."
+
+*/
