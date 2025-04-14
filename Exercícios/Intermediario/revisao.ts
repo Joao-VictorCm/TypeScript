@@ -116,3 +116,19 @@ Retorna uma mensagem formatada, assim:
 "Total em estoque: R$ 4.30 para 3 itens disponíveis."
 
 */
+
+function gerarResumoDeEstoque(lista: Produto[]) {
+  const produtoEmEstoque = lista.filter((estoque) =>
+    estoque.disponivel ? true : false
+  );
+  const valorTotal = produtoEmEstoque.reduce(
+    (prevVal, estoque) => prevVal + estoque.price,
+    0
+  );
+
+  return `Total em estoque; R$ ${valorTotal.toFixed(2)} para ${
+    produtoEmEstoque.length
+  } itens disponíveis`;
+}
+
+console.log(gerarResumoDeEstoque(produtos));
