@@ -34,3 +34,21 @@ function verificarTodosDisponiveis(lista: Produto[]) {
 }
 
 console.log(verificarTodosDisponiveis(estoqueAlmox));
+
+/*
+🔍 Desafio com some() — Verificar se existe algum produto caro
+Crie uma função que verifique se existe pelo menos um produto com preço acima de R$ 10.
+
+✍️ Regras:
+Use o método .some()
+
+A função deve se chamar existeProdutoCaro
+
+Deve retornar true se existe pelo menos um produto acima de R$ 10, senão false
+*/
+
+function existeProdutoCaro(lista: Produto[]) {
+  return lista.some((valor) => valor.price >= 10);
+}
+
+console.log(existeProdutoCaro(estoqueAlmox));
