@@ -15,20 +15,20 @@ array.reduce((acumulador, itemAtual) => {
   return acumulador + itemAtual.algo;
 }, 0); */
 
-interface Produto {
+interface itemsEstoque {
   name: string;
   price: number;
   disponivel: boolean;
 }
 
-const items: Produto[] = [
+const items: itemsEstoque[] = [
   { name: "caneta", price: 1.5, disponivel: true },
   { name: "lapis", price: 0.5, disponivel: true },
   { name: "estojo", price: 5, disponivel: false },
   { name: "borracha", price: 2.3, disponivel: true },
 ];
 
-function calcularTotalDisponiveis(lista: Produto[]) {
+function calcularTotalDisponiveis(lista: itemsEstoque[]) {
   const disponiveis = lista.filter((produto) => produto.disponivel);
 
   const total = disponiveis.reduce((soma, produto) => {
