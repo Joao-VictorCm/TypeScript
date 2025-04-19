@@ -14,20 +14,20 @@ Exibe uma mensagem com os nomes e preços formatados, por exemplo:
 "borracha - R$ 2.30"
 */
 
-interface Produto {
+interface Produto02 {
   name: string;
   price: number;
   disponivel: boolean;
 }
 
-const estoque: Produto[] = [
+const estoque: Produto02[] = [
   { name: "caneta", price: 1.5, disponivel: true },
   { name: "lapis", price: 0.5, disponivel: true },
   { name: "estojo", price: 5, disponivel: false },
   { name: "borracha", price: 2.3, disponivel: true },
 ];
 
-function buscarPorFaixaDePreco(lista: Produto[], min: number, max: number) {
+function buscarPorFaixaDePreco(lista: Produto02[], min: number, max: number) {
   const disponivel = lista.filter(
     (produtoDisponivel) =>
       produtoDisponivel.disponivel &&

@@ -17,20 +17,20 @@ recebe um array de produtos
 retorna apenas os produtos com disponivel: true
  */
 
-interface Produto {
+interface Produto01 {
   name: string;
   price: number;
   disponivel: boolean;
 }
 
-const produtos: Produto[] = [
+const produtos: Produto01[] = [
   { name: "caneta", price: 1.5, disponivel: true },
   { name: "lapis", price: 0.5, disponivel: true },
   { name: "estojo", price: 5, disponivel: false },
   { name: "borracha", price: 2.3, disponivel: true },
 ];
 
-function filtrarDisponiveis(lista: Produto[]) {
+function filtrarDisponiveis(lista: Produto01[]) {
   return lista.filter((produtos) => produtos.disponivel);
 }
 
@@ -48,7 +48,7 @@ console.log(emEstoque);
   Retorna um array de strings com a seguinte estrutura:
   */
 
-function aplicarImposto(lista: Produto[]) {
+function aplicarImposto(lista: Produto01[]) {
   return lista.map((emEstoque) => {
     const result = emEstoque.price * 1.1;
     return `${emEstoque.name} - ${result.toFixed(2)}`;
@@ -74,7 +74,7 @@ console.log(juros);
   
   Mantenha a formatação do preço com duas casas decimais. */
 
-function exibirRelatorioDeProdutos(lista: Produto[]) {
+function exibirRelatorioDeProdutos(lista: Produto01[]) {
   lista.forEach((produtos) => {
     const estoque = produtos.disponivel ? "sim" : "não";
     console.log(
@@ -93,7 +93,7 @@ Soma os preços desses produtos.
 Calcula a média dos preços.
 Retorna o resultado com duas casas decimais. */
 
-function calcularMediaDisponiveis(lista: Produto[]) {
+function calcularMediaDisponiveis(lista: Produto01[]) {
   const filtro = lista.filter((itens) => (itens.disponivel ? true : false));
   const soma = filtro.reduce((prevVal, itens) => prevVal + itens.price, 0);
   const media = soma / filtro.length;
@@ -117,7 +117,7 @@ Retorna uma mensagem formatada, assim:
 
 */
 
-function gerarResumoDeEstoque(lista: Produto[]) {
+function gerarResumoDeEstoque(lista: Produto01[]) {
   const produtoEmEstoque = lista.filter((estoque) =>
     estoque.disponivel ? true : false
   );
