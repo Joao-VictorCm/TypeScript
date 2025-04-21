@@ -30,6 +30,7 @@ const items: itemsEstoque[] = [
 
 function calcularTotalDisponiveis(lista: itemsEstoque[]) {
   const disponiveis = lista.filter((produto) => produto.disponivel);
+  const top3 = 
 
   const total = disponiveis.reduce((soma, produto) => {
     return soma + produto.price;
