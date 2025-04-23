@@ -78,14 +78,49 @@ const inventario: ProdutoEstoque[] = [
 
 function relatorioInventario(lista: ProdutoEstoque[]) {
   const disponivel = lista.filter((itens) => itens.disponivel);
+
+  //Periféricos
   const perifericos = disponivel.filter(
     (categoria) => categoria.categoria === "Periféricos"
   );
-  const categoriaName = perifericos.map((name) => name.categoria);
-  const result = perifericos.map((itens) => itens.preco * itens.quantidade);
-  const total = result.reduce((prevValue, elem) => prevValue + elem, 0);
+  const resultPer = perifericos.map((itens) => itens.preco * itens.quantidade);
+  const totalPer = resultPer.reduce((prevValue, elem) => prevValue + elem, 0);
+  const top1Per = perifericos
+    .sort((a, b) => b.preco - a.preco)
+    .map((name) => name.nome);
 
-  return `Categoria: ${categoriaName[0]}\nTotal de intens: ${perifericos.length}\nValor total em estoque: ${total}`;
+  //Armazenamento
+  const armazenamento = disponivel.filter(
+    (categoria) => categoria.categoria === "Armazenamento"
+  );
+  const resultArmaz = armazenamento.map(
+    (itens) => itens.preco * itens.quantidade
+  );
+  const totalArmaz = resultArmaz.reduce(
+    (prevValue, elem) => prevValue + elem,
+    0
+  );
+  const top1Armaz = armazenamento
+    .sort((a, b) => b.preco - a.preco)
+    .map((name) => name.nome);
+
+  //Hardware
+  const hardware = disponivel.filter(
+    (categoria) => categoria.categoria === "Hardware"
+  );
+  const resultHardware = hardware.map(
+    (itens) => itens.preco * itens.quantidade
+  );
+  const totalHardware = resultHardware.reduce(
+    (prevValue, elem) => prevValue + elem,
+    0
+  );
+  const top1Hardware = hardware
+    .sort((a, b) => b.preco - a.preco)
+    .map((name) => name.nome);
+
+  return `Categoria: ${perifericos[0].categoria}\nTotal de itens: ${perifericos.length}\nValor total em estoque: ${totalPer}\nProduto mais caro: ${top1Per[0]} 
+  \nCategoria: ${armazenamento[0].categoria}\nTotal de itens: ${armazenamento.length}\nValor total em estoque: ${totalArmaz}\nProduto mais caro: ${top1Armaz[0]}\n\nCategoria: ${hardware[0].categoria}\nTotal de itens: ${hardware.length}\nValor total em estoque: ${totalHardware}\nProduto mais caro: ${top1Hardware[0]}`;
 }
 
 console.log(relatorioInventario(inventario));
