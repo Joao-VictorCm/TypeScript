@@ -152,3 +152,53 @@ function gerarRelatorioPorCidade(lista: Cliente[], cidade: string) {
 }
 
 console.log(gerarRelatorioPorCidade(clientes, "Porto Alegre"));
+
+/*
+Desafio: Análise de Fidelidade dos Clientes
+Você recebeu um array de clientes com dados como nome, cidade, número de compras, total gasto e se está ativo.
+
+Seu objetivo é criar uma função analisarFidelidade(clientes: Cliente[]) que retorne:
+
+A quantidade total de clientes ativos
+
+A média de valor gasto por cliente ativo
+
+O cliente mais fiel (maior número de compras entre os ativos)
+
+O ranking dos 3 clientes ativos que mais gastaram (nome e valor)
+
+Um alerta caso a média de gastos esteja abaixo de R$1000
+*/
+
+function analisarFidelidade(lista: Cliente[]) {
+  const clienteAtivo = lista.filter((itens) => itens.ativo);
+  const totalClientes = clienteAtivo.length;
+  const maisFiel = clienteAtivo.sort((a, b) => b.compras - a.compras)[0].nome;
+
+  const top3Gastos = clienteAtivo
+    .sort((a, b) => b.valorTotal - a.valorTotal)
+    .slice(0, 3)
+    .map((result) => {
+      const nome = result.nome;
+      const valor = result.valorTotal;
+
+      return `nome:${nome} valor gasto:${valor}`;
+    })
+    .join("\n");
+
+  const somaGastos = clienteAtivo.reduce(
+    (prevValue, elem) => prevValue + elem.valorTotal,
+    0
+  );
+  const mediaDeGastos = somaGastos / totalClientes;
+
+  if (mediaDeGastos <= 999) {
+    return `Media de gasto esta abaixo de 100 ${mediaDeGastos.toFixed(2)}`;
+  } else {
+    return `Clientes ativos: ${totalClientes}\nMedia de gastos: ${mediaDeGastos.toFixed(
+      2
+    )}\nCliente mais fiel: ${maisFiel}\nRanking mais ativos  ${top3Gastos}`.trim();
+  }
+}
+
+console.log(analisarFidelidade(clientes));
