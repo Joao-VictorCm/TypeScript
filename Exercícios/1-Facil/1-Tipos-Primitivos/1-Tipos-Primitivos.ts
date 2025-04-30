@@ -5,8 +5,8 @@
 // anoNascimento: um número que representa o ano de nascimento
 // temConta: um booleano que indica se a pessoa tem conta ativa
 
-const cidade: string = "Antonio Prado - RS";
-const anoNascimento: number = 2021;
-const temConta: boolean = true;
+export const cidade: string = "Antonio Prado - RS";
+export const anoNascimento: number = 2021;
+export const temConta: boolean = true;
 
 console.log(cidade, anoNascimento, temConta);
