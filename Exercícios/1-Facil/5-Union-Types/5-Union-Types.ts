@@ -28,7 +28,7 @@ exibirStatus("Desconhecido");
 // "desconhecido"	"Status do usuário é desconhecido"
 // Dica: Você pode usar if ou switch, como preferir!
 
-function exibirBonus(status: boolean | "desconhecido") {
+export function exibirBonus(status: boolean | "desconhecido") {
   switch (status) {
     case true:
       console.log("Usuário ativo");
