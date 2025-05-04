@@ -12,7 +12,7 @@ type Item = {
   emEstoque: boolean;
 };
 
-const item1: Item = {
+export const item1: Item = {
   nome: "caneta",
   preço: 1.5,
   emEstoque: true,
